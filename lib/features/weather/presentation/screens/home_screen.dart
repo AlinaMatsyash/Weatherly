@@ -16,6 +16,8 @@ import '../../../../design_system/widgets/precipitation_chart.dart';
 import '../../../../design_system/widgets/rain_alert_card.dart';
 import '../../../../design_system/widgets/weather_card.dart';
 import '../../../../design_system/widgets/weather_metric_card.dart';
+import '../../../ads/widgets/home_bottom_banner_ad.dart';
+import '../../../ads/widgets/home_forecast_native_ad.dart';
 import '../../domain/entities/hourly_weather.dart';
 import '../../domain/entities/weather.dart';
 import '../bloc/weather_bloc.dart';
@@ -179,6 +181,8 @@ class _HomeContent extends StatelessWidget {
               ),
             ),
             const SizedBox(height: AppSpacing.md),
+            const HomeForecastNativeAd(),
+            const SizedBox(height: AppSpacing.md),
             GridView.count(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -215,6 +219,8 @@ class _HomeContent extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: AppSpacing.md),
+            const HomeBottomBannerAd(),
             const SizedBox(height: AppSpacing.sm),
             Center(
               child: Text(
