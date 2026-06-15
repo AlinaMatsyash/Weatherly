@@ -49,6 +49,7 @@ class OpenMeteoWeatherRemoteDataSource {
             'sunset',
           ].join(','),
           'timezone': 'auto',
+          'wind_speed_unit': 'ms',
           'forecast_days': 7,
         },
       );

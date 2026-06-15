@@ -10,6 +10,7 @@ import '../../features/weather/domain/repositories/weather_repository.dart';
 import '../../features/weather/domain/usecases/get_current_location_weather.dart';
 import '../../features/weather/domain/usecases/get_weather_by_city.dart';
 import '../../features/weather/domain/usecases/get_weather_by_coordinates.dart';
+import '../../features/weather/presentation/bloc/weather_bloc.dart';
 
 final getIt = GetIt.instance;
 
@@ -45,6 +46,9 @@ Future<void> configureDependencies() async {
     ..registerLazySingleton(() => GetWeatherByCity(getIt<WeatherRepository>()))
     ..registerLazySingleton(
       () => GetCurrentLocationWeather(getIt<WeatherRepository>()),
+    )
+    ..registerFactory(
+      () => WeatherBloc(getWeatherByCity: getIt<GetWeatherByCity>()),
     );
 
   getIt.registerSingleton(const AppBootstrapMarker());
